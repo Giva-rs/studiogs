@@ -67,9 +67,9 @@ const stats = [
   </div>
 </section>
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
-<script is:inline>
-  (async () => {
+<script defer src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
     await tsParticles.load("tsparticles", {
       fullScreen: { enable: false },
       background: { color: { value: "transparent" } },
