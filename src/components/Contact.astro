@@ -1,0 +1,155 @@
+---
+// ✏️ Substitua YOUR_FORM_ID pelo seu ID do Formspree (formspree.io — plano gratuito)
+// Crie uma conta gratuita em https://formspree.io e cole o ID aqui
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+const contactItems = [
+  { icon: '📧', label: 'E-mail', value: 'contato@studiogs.com.br' },
+  { icon: '📱', label: 'WhatsApp', value: '+55 (16) 9 9999-9999' },
+  { icon: '📍', label: 'Localização', value: 'Ribeirão Preto, SP — Brasil' },
+];
+
+const projectTypes = [
+  'Site institucional',
+  'E-commerce',
+  'Sistema / Aplicação',
+  'Landing page',
+  'Outro',
+];
+---
+
+<section id="contato" class="bg-[#F4F6F9] px-10 py-[72px]">
+  <p class="section-tag">Contato</p>
+  <h2 class="section-title">Vamos conversar sobre seu projeto</h2>
+  <p class="section-sub">Preencha o formulário e entraremos em contato em até 24 horas úteis.</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-16 items-start">
+
+    <!-- Info de contato -->
+    <div class="flex flex-col gap-5">
+      {contactItems.map((item) => (
+        <div class="flex gap-3.5 items-start">
+          <div class="w-10 h-10 bg-blue-accent rounded-[6px] flex items-center justify-center text-base flex-shrink-0">
+            {item.icon}
+          </div>
+          <div>
+            <p class="font-sans text-[12px] font-bold uppercase tracking-[1px] text-[#5A6A7E] mb-0.5">
+              {item.label}
+            </p>
+            <p class="font-sans text-[14px] text-navy font-semibold">{item.value}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Formulário -->
+    <div class="bg-white border border-[#E8ECF2] rounded-[6px] p-8">
+      <!--
+        Usando Formspree para envio de e-mail gratuito.
+        1. Crie conta em https://formspree.io
+        2. Crie um novo form e copie o ID
+        3. Substitua YOUR_FORM_ID acima
+      -->
+      <form
+        action={`https://formspree.io/f/${FORMSPREE_ID}`}
+        method="POST"
+        id="contact-form"
+      >
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div class="flex flex-col gap-1.5">
+            <label class="font-sans text-[12px] font-bold uppercase tracking-[0.8px] text-[#3D4A5C]">
+              Nome
+            </label>
+            <input
+              type="text"
+              name="nome"
+              placeholder="Seu nome"
+              required
+              class="border border-[#E8ECF2] rounded-[4px] px-3.5 py-2.5 font-sans text-[14px] text-navy bg-[#F4F6F9] outline-none focus:border-blue-accent transition-colors"
+            />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="font-sans text-[12px] font-bold uppercase tracking-[0.8px] text-[#3D4A5C]">
+              Empresa
+            </label>
+            <input
+              type="text"
+              name="empresa"
+              placeholder="Sua empresa"
+              class="border border-[#E8ECF2] rounded-[4px] px-3.5 py-2.5 font-sans text-[14px] text-navy bg-[#F4F6F9] outline-none focus:border-blue-accent transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 mb-4">
+          <label class="font-sans text-[12px] font-bold uppercase tracking-[0.8px] text-[#3D4A5C]">
+            E-mail
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="seu@email.com"
+            required
+            class="border border-[#E8ECF2] rounded-[4px] px-3.5 py-2.5 font-sans text-[14px] text-navy bg-[#F4F6F9] outline-none focus:border-blue-accent transition-colors"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5 mb-4">
+          <label class="font-sans text-[12px] font-bold uppercase tracking-[0.8px] text-[#3D4A5C]">
+            Tipo de projeto
+          </label>
+          <select
+            name="tipo_projeto"
+            class="border border-[#E8ECF2] rounded-[4px] px-3.5 py-2.5 font-sans text-[14px] text-navy bg-[#F4F6F9] outline-none focus:border-blue-accent transition-colors"
+          >
+            {projectTypes.map((t) => <option value={t}>{t}</option>)}
+          </select>
+        </div>
+
+        <div class="flex flex-col gap-1.5 mb-4">
+          <label class="font-sans text-[12px] font-bold uppercase tracking-[0.8px] text-[#3D4A5C]">
+            Mensagem
+          </label>
+          <textarea
+            name="mensagem"
+            placeholder="Conte um pouco sobre seu projeto..."
+            rows="4"
+            required
+            class="border border-[#E8ECF2] rounded-[4px] px-3.5 py-2.5 font-sans text-[14px] text-navy bg-[#F4F6F9] outline-none focus:border-blue-accent transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-navy text-white font-sans text-[13px] font-bold tracking-[1px] uppercase py-3.5 rounded-[4px] hover:bg-navy-mid transition-colors duration-200"
+        >
+          Enviar mensagem →
+        </button>
+
+        <!-- Feedback de envio -->
+        <p id="form-success" class="hidden font-sans text-[13px] text-green-700 text-center mt-3">
+          ✅ Mensagem enviada! Entraremos em contato em breve.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const success = document.getElementById('form-success');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' },
+    });
+    if (res.ok) {
+      form.reset();
+      success?.classList.remove('hidden');
+    }
+  });
+</script>

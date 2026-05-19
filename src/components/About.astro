@@ -1,0 +1,147 @@
+---
+const skills = [
+  'Desenvolvimento Front-end',
+  'Back-end & APIs',
+  'SEO Técnico',
+  'Performance Web',
+  'UI/UX Design',
+  'Integrações & CRM',
+];
+
+// ✏️ Edite com suas certificações / marcos reais
+const credentials = [
+  { year: '2024', title: 'Google Partner Certificado', desc: 'Certificação em Web Performance e Core Web Vitals' },
+  { year: '2023', title: 'Meta Business Partner', desc: 'Integração avançada com ecossistema Meta para e-commerce' },
+  { year: '2022', title: 'AWS Certified Developer', desc: 'Infraestrutura cloud para aplicações de alta disponibilidade' },
+  { year: '2021', title: 'Fundação da StudioGS', desc: 'Início com foco em pequenas e médias empresas de Ribeirão Preto' },
+];
+---
+
+<section id="sobre" class="relative overflow-hidden px-10 py-[72px]">
+
+  <!-- CAMADA 1 (fundo): imagem -->
+  <div
+    class="absolute inset-0 z-0"
+    style="
+      background-image: url('/studiogs/images/about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    "
+  ></div>
+
+  <!-- Overlay escuro para legibilidade -->
+  <div
+    class="absolute inset-0 z-[1]"
+    style="background: rgba(13,27,42,0.82);"
+  ></div>
+
+  <!-- CAMADA 2 (meio): partículas -->
+  <div id="tsparticles-about" class="absolute inset-0 z-[2]"></div>
+
+  <!-- CAMADA 3 (frente): conteúdo -->
+  <div class="relative z-[3]">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+      <!-- Coluna esquerda: texto -->
+      <div>
+        <p class="font-sans text-[11px] tracking-[2.5px] uppercase text-gold mb-3 flex items-center gap-2.5">
+          <span class="w-6 h-0.5 bg-gold inline-block"></span>
+          Sobre nós
+        </p>
+        <h2 class="font-serif text-3xl font-bold text-white leading-tight mb-3">
+          Tecnologia a serviço do seu negócio
+        </h2>
+        <p class="font-sans text-[15px] text-white/60 leading-relaxed max-w-xl mb-7">
+          Somos um estúdio digital de Ribeirão Preto especializado em desenvolvimento web de alta performance para empresas que levam a sério sua presença online.
+        </p>
+        <p class="font-sans text-[14px] text-white/60 leading-[1.75] mb-4">
+          Com mais de 4 anos no mercado e 60 projetos entregues, combinamos design estratégico e engenharia sólida para projetos que geram resultado real — não apenas sites bonitos.
+        </p>
+        <p class="font-sans text-[14px] text-white/60 leading-[1.75] mb-6">
+          Cada projeto começa com uma escuta profunda das suas metas de negócio.
+        </p>
+
+        <!-- Skills grid -->
+        <div class="grid grid-cols-2 gap-2.5">
+          {skills.map((s) => (
+            <div class="flex items-center gap-2 font-sans text-[13px] text-white/75">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
+              {s}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Coluna direita: credenciais -->
+      <div class="flex flex-col gap-4">
+        {credentials.map((c) => (
+          <div
+            class="bg-white/[0.06] border border-white/10 rounded-[4px] p-5"
+            style="border-left: 3px solid #C49A3C;"
+          >
+            <p class="font-sans text-[11px] text-gold font-bold tracking-[1px] mb-1">{c.year}</p>
+            <p class="font-sans text-[14px] font-bold text-white mb-1">{c.title}</p>
+            <p class="font-sans text-[12px] text-white/50">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (async () => {
+    // Aguarda o tsParticles estar disponível (carregado pela Hero)
+    const waitForTsParticles = () => new Promise((resolve) => {
+      if (typeof tsParticles !== 'undefined') return resolve(true);
+      const interval = setInterval(() => {
+        if (typeof tsParticles !== 'undefined') {
+          clearInterval(interval);
+          resolve(true);
+        }
+      }, 100);
+    });
+
+    await waitForTsParticles();
+
+    await tsParticles.load("tsparticles-about", {
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: { value: 60, density: { enable: true, area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: {
+          value: { min: 0, max: 0.5 },
+          animation: { enable: true, speed: 1, sync: false }
+        },
+        size: {
+          value: { min: 1, max: 2 },
+          random: true
+        },
+        links: { enable: false },
+        move: {
+          enable: true,
+          speed: 0.6,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "bubble" },
+          onClick: { enable: true, mode: "repulse" },
+          resize: true
+        },
+        modes: {
+          bubble: { distance: 200, size: 0, duration: 2, opacity: 0 },
+          repulse: { distance: 300, duration: 0.4 }
+        }
+      },
+      detectRetina: true
+    });
+  })();
+</script>

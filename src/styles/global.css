@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Baradig';
+  src: url('/studiogs/fonts/BaradigBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-serif text-navy bg-white;
+  }
+}
+
+@layer components {
+  .section-tag {
+    @apply font-sans text-[11px] tracking-[2.5px] uppercase text-blue-accent mb-3
+           flex items-center gap-2.5;
+  }
+  .section-tag::before {
+    content: '';
+    @apply w-6 h-0.5 bg-blue-accent inline-block;
+  }
+  .section-title {
+    @apply font-serif text-3xl font-bold text-navy leading-tight mb-3;
+  }
+  .section-sub {
+    @apply font-sans text-[15px] text-[#5A6A7E] leading-relaxed max-w-xl mb-12;
+  }
+  .btn-primary {
+    @apply font-sans text-[13px] font-bold tracking-[0.8px] uppercase
+           bg-gold text-navy px-7 py-3.5 rounded-[3px] inline-block
+           hover:bg-gold-light transition-colors duration-200;
+  }
+  .btn-outline {
+    @apply font-sans text-[13px] font-semibold tracking-[0.8px] uppercase
+           bg-transparent text-white/80 px-7 py-3.5 rounded-[3px] inline-block
+           border border-white/25 hover:border-white/50 transition-colors duration-200;
+  }
+}

@@ -1,0 +1,86 @@
+---
+// ✏️ Atualize 'url' com o link real de cada projeto quando disponível
+const projects = [
+  {
+    imgSrc: '/studiogs/images/projeto-femgi.jpg',
+    imgAlt: 'Site FEMGI — Projetos que conectam ideias',
+    type: 'Institucional',
+    title: 'FEMGI',
+    description: 'Site institucional moderno com foco em clareza, estética contemporânea e captação de projetos de reforma e gestão de obras.',
+    tech: 'WordPress · Elementor · SEO',
+    url: '#',
+  },
+  {
+    imgSrc: '/studiogs/images/projeto-lojatudolar.jpg',
+    imgAlt: 'E-commerce Tudolar — Artigos para pets e muito mais',
+    type: 'E-commerce',
+    title: 'Loja Tudolar',
+    description: 'E-commerce completo com catálogo de produtos, categorias, barra de busca e integração com WhatsApp para atendimento.',
+    tech: 'WooCommerce · PHP · WhatsApp',
+    url: '#',
+  },
+  {
+    imgSrc: '/studiogs/images/projeto-thairine.jpg',
+    imgAlt: 'Site Thairine Pacheco — Atendimento Nutricional Online',
+    type: 'Landing Page',
+    title: 'Thairine Pacheco Nutrição',
+    description: 'Landing page para nutricionista com agendamento via WhatsApp, apresentação de serviços e depoimentos de pacientes.',
+    tech: 'WordPress · Elementor · WhatsApp API',
+    url: '#',
+  },
+  {
+    imgSrc: '/studiogs/images/projeto-upbarber.jpg',
+    imgAlt: 'Site Up Barber — Sua melhor versão começa aqui',
+    type: 'Institucional',
+    title: 'Up Barber',
+    description: 'Site para barbearia com galeria de serviços, agendamento online via WhatsApp e localização integrada ao Google Maps.',
+    tech: 'WordPress · Elementor · Google Maps',
+    url: '#',
+  },
+];
+---
+
+<section id="projetos" class="px-10 py-[72px]">
+  <p class="section-tag">Cases</p>
+  <h2 class="section-title">Projetos selecionados</h2>
+  <p class="section-sub">
+    Uma amostra do nosso trabalho para empresas de diferentes segmentos.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {projects.map((p) => (
+      <article class="border border-[#E8ECF2] rounded-[6px] overflow-hidden bg-white group">
+
+        <!-- Imagem real do projeto com efeito zoom no hover -->
+        <div class="h-48 overflow-hidden">
+          <img
+            src={p.imgSrc}
+            alt={p.imgAlt}
+            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="p-5">
+          <p class="font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-blue-accent mb-1.5">
+            {p.type}
+          </p>
+          <h3 class="font-sans text-base font-bold text-navy mb-2">{p.title}</h3>
+          <p class="font-sans text-[13px] text-[#5A6A7E] leading-[1.6]">{p.description}</p>
+
+          <div class="flex items-center justify-between mt-3.5 pt-3.5 border-t border-[#E8ECF2]">
+            <span class="font-sans text-[11px] text-[#9AA3B0]">{p.tech}</span>
+            <a
+              href={p.url}
+              class="font-sans text-[12px] font-bold text-blue-accent no-underline hover:underline"
+            >
+              Visitar site →
+            </a>
+          </div>
+        </div>
+
+      </article>
+    ))}
+  </div>
+</section>

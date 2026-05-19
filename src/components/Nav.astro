@@ -1,0 +1,78 @@
+---
+const navLinks = [
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Projetos', href: '#projetos' },
+  { label: 'Sobre', href: '#sobre' },
+];
+---
+
+<nav class="bg-navy px-10 h-[60px] flex items-center justify-between sticky top-0 z-50">
+  <a href="#" class="text-lg text-white tracking-wide" style="font-family: 'Baradig', sans-serif;">
+    Studio<span class="text-gold">GS</span>
+  </a>
+
+  <!-- Desktop menu -->
+  <ul class="hidden md:flex gap-7 list-none">
+    {navLinks.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          class="font-sans text-[13px] text-white/70 no-underline tracking-[0.8px] uppercase hover:text-gold-light transition-colors duration-200"
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+    <li>
+      <a
+        href="#contato"
+        class="font-sans text-[13px] font-bold tracking-[0.8px] uppercase
+               bg-gold text-navy px-[18px] py-2 rounded-[3px] no-underline
+               hover:bg-gold-light transition-colors duration-200"
+      >
+        Contato
+      </a>
+    </li>
+  </ul>
+
+  <!-- Mobile hamburger -->
+  <button
+    id="menu-toggle"
+    class="md:hidden text-white p-2"
+    aria-label="Abrir menu"
+  >
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="19" y2="6"/>
+      <line x1="3" y1="11" x2="19" y2="11"/>
+      <line x1="3" y1="16" x2="19" y2="16"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu"
+  class="hidden fixed inset-0 bg-navy z-40 flex flex-col items-center justify-center gap-8"
+>
+  <button id="menu-close" class="absolute top-5 right-8 text-white/60 text-3xl">&times;</button>
+  {navLinks.map((link) => (
+    <a
+      href={link.href}
+      class="mobile-link font-sans text-2xl text-white/80 no-underline tracking-widest uppercase hover:text-gold-light"
+    >
+      {link.label}
+    </a>
+  ))}
+  <a href="#contato" class="btn-primary mt-4">Contato</a>
+</div>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const close = document.getElementById('menu-close');
+  const menu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  toggle?.addEventListener('click', () => menu?.classList.remove('hidden'));
+  close?.addEventListener('click', () => menu?.classList.add('hidden'));
+  mobileLinks.forEach(l => l.addEventListener('click', () => menu?.classList.add('hidden')));
+</script>

@@ -1,0 +1,92 @@
+---
+const services = [
+  {
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>`,
+    title: 'Sites Institucionais & Landing Pages',
+    description: 'Páginas otimizadas para conversão com design profissional, SEO técnico e alta performance.',
+    tags: ['Astro', 'Next.js', 'SEO'],
+  },
+  {
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"/>
+      <circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+    </svg>`,
+    title: 'E-commerce & Lojas Virtuais',
+    description: 'Lojas completas com gestão de produtos, pagamentos integrados e experiência de compra fluida.',
+    tags: ['Shopify', 'WooCommerce', 'APIs'],
+  },
+  {
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+      <line x1="8" y1="21" x2="16" y2="21"/>
+      <line x1="12" y1="17" x2="12" y2="21"/>
+    </svg>`,
+    title: 'Sistemas & Aplicações Web',
+    description: 'Plataformas, dashboards e sistemas sob medida com arquitetura escalável e segura.',
+    tags: ['React', 'Node.js', 'PostgreSQL'],
+  },
+];
+---
+
+<section id="servicos" class="bg-[#F4F6F9] px-10 py-[72px]">
+  <p class="section-tag">O que fazemos</p>
+  <h2 class="section-title">Serviços completos para sua presença digital</h2>
+  <p class="section-sub">
+    Do planejamento à entrega, desenvolvemos com as tecnologias mais modernas do mercado.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    {services.map((s) => (
+      <div class="service-card bg-white border border-[#E8ECF2] border-t-[3px] border-t-blue-accent rounded-[4px] p-7">
+        <div class="service-icon-wrap w-11 h-11 bg-blue-muted rounded-[6px] flex items-center justify-center mb-4 text-blue-accent transition-all duration-300">
+          <Fragment set:html={s.svg} />
+        </div>
+        <h3 class="font-sans text-[15px] font-bold text-navy mb-2.5">{s.title}</h3>
+        <p class="font-sans text-[13px] text-[#5A6A7E] leading-[1.65]">{s.description}</p>
+        <div class="flex flex-wrap gap-1.5 mt-4">
+          {s.tags.map((tag) => (
+            <span class="font-sans text-[11px] px-2.5 py-0.5 bg-blue-muted text-blue-accent rounded-full font-semibold">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .service-card:hover .service-icon-wrap {
+    background-color: #e8eaed;
+    color: #a0a8b4;
+    box-shadow: 0 0 0 2px #c8cdd6, 0 2px 12px rgba(160,168,180,0.25);
+  }
+
+  .service-card:hover .service-icon-wrap svg {
+    stroke: url(#silver-grad);
+    filter: drop-shadow(0 0 4px rgba(192, 200, 215, 0.7));
+  }
+
+  /* Gradiente prateado aplicado via SVG defs inline */
+  :global(#silver-grad) {
+    --silver-start: #e8ecf2;
+    --silver-mid: #a0a8b8;
+    --silver-end: #c8cdd8;
+  }
+</style>
+
+<!-- SVG defs global para o gradiente prateado -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#e8ecf2"/>
+      <stop offset="45%"  stop-color="#9aa3b4"/>
+      <stop offset="100%" stop-color="#c8cdd8"/>
+    </linearGradient>
+  </defs>
+</svg>
