@@ -1,7 +1,9 @@
 ---
 const projects = [
   {
-    imgSrc: '/studiogs/images/projeto-femgi.jpg',
+    {
+    imgSrc: '/studiogs/images/projeto-femgi-lg.webp',
+    imgSrcset: '/studiogs/images/projeto-femgi-sm.webp 600w, /studiogs/images/projeto-femgi-md.webp 900w, /studiogs/images/projeto-femgi-lg.webp 1280w',
     imgAlt: 'Site FEMGI — Projetos que conectam ideias',
     type: 'Institucional',
     title: 'FEMGI',
@@ -10,7 +12,9 @@ const projects = [
     url: 'https://www.femgi.com.br',
   },
   {
-    imgSrc: '/studiogs/images/projeto-lojatudolar.jpg',
+    {
+    imgSrc: '/studiogs/images/projeto-lojatudolar-lg.webp',
+    imgSrcset: '/studiogs/images/projeto-lojatudolar-sm.webp 600w, /studiogs/images/projeto-lojatudolar-md.webp 900w, /studiogs/images/projeto-lojatudolar-lg.webp 1280w',
     imgAlt: 'E-commerce Tudolar — Artigos para o lar e muito mais',
     type: 'E-commerce',
     title: 'Loja Tudolar',
@@ -19,7 +23,8 @@ const projects = [
     url: 'https://www.lojatudolar.com.br',
   },
   {
-    imgSrc: '/studiogs/images/projeto-thairine.jpg',
+    imgSrc: '/studiogs/images/projeto-thairine-lg.webp',
+    imgSrcset: '/studiogs/images/projeto-thairine-sm.webp 600w, /studiogs/images/projeto-thairine-md.webp 900w, /studiogs/images/projeto-thairine-lg.webp 1280w',
     imgAlt: 'Site Thairine Pacheco — Atendimento Nutricional Online',
     type: 'Landing Page',
     title: 'Thairine Pacheco Nutricionista',
@@ -28,7 +33,8 @@ const projects = [
     url: 'https://www.thairinenutricionista.com/thairine-pacheco-nutricionista-online-consulta-nutricional-online',
   },
   {
-    imgSrc: '/studiogs/images/projeto-upbarber.jpg',
+    imgSrc: '/studiogs/images/projeto-upbarber-lg.webp',
+    imgSrcset: '/studiogs/images/projeto-upbarber-sm.webp 600w, /studiogs/images/projeto-upbarber-md.webp 900w, /studiogs/images/projeto-upbarber-lg.webp 1280w',
     imgAlt: 'Site Up Barber — Sua melhor versão começa aqui',
     type: 'Institucional',
     title: 'Up Barber',
@@ -50,9 +56,11 @@ const projects = [
       <div class="w-full overflow-hidden" style="aspect-ratio: 19/9;">
         <img
           src={p.imgSrc}
+          srcset={p.imgSrcset}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
           alt={p.imgAlt}
-          width="640"
-          height="360"
+          width="1280"
+          height="603"
           class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading={i === 0 ? 'eager' : 'lazy'}
           fetchpriority={i === 0 ? 'high' : 'auto'}
