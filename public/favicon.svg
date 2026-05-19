@@ -3,28 +3,14 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #fff;
+        fill: #c49a3c;
       }
 
       .cls-2 {
-        fill: #0d1b2a;
-        font-size: 18.5px;
-      }
-
-      .cls-3 {
-        letter-spacing: -.02em;
-      }
-
-      .cls-4 {
-        font-family: BaradigBold, Baradig;
-      }
-
-      .cls-5 {
-        fill: #c49a3c;
-        font-size: 40.5px;
+        fill: #fff;
       }
     </style>
   </defs>
-  <path class="cls-1" d="M0,0h64v54c0,5.52-4.48,10-10,10H10C4.48,64,0,59.52,0,54V0H0Z"/>
-  <text class="cls-4" transform="translate(.52 20.35) scale(.85 1)"><tspan class="cls-2"><tspan class="cls-3" x="0" y="0">s</tspan><tspan x="14.26" y="0">tudio</tspan></tspan><tspan class="cls-5"><tspan x="-.57" y="43.6">GS</tspan></tspan></text>
+  <rect class="cls-2" x="0" y="0" width="64" height="64" rx="10" ry="10"/>
+  <path class="cls-1" d="M55.14,50.57l-8.78,13.41h-26.26C8.97,63.98-.17,53-.17,39.48v-15C-.17,11.07,8.96-.02,20.1-.02h40.61v10.45H23.23c-6.35,0-11.56,6.34-11.56,14.05v15c0,7.71,5.22,14.05,11.56,14.05h18.78l12.44-19.12h-31.04v-10.45h40.43v40.03h-8.7v-13.41Z"/>
 </svg>
