@@ -1,14 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-
-import femgi from '../images/projeto-femgi.jpg';
-import tudolar from '../images/projeto-lojatudolar.jpg';
-import thairine from '../images/projeto-thairine.jpg';
-import upbarber from '../images/projeto-upbarber.jpg';
-
 const projects = [
   {
-    img: femgi,
+    imgSrc: '/studiogs/images/projeto-femgi.jpg',
     imgAlt: 'Site FEMGI — Projetos que conectam ideias',
     type: 'Institucional',
     title: 'FEMGI',
@@ -17,7 +10,7 @@ const projects = [
     url: 'https://www.femgi.com.br',
   },
   {
-    img: tudolar,
+    imgSrc: '/studiogs/images/projeto-lojatudolar.jpg',
     imgAlt: 'E-commerce Tudolar — Artigos para o lar e muito mais',
     type: 'E-commerce',
     title: 'Loja Tudolar',
@@ -26,7 +19,7 @@ const projects = [
     url: 'https://www.lojatudolar.com.br',
   },
   {
-    img: thairine,
+    imgSrc: '/studiogs/images/projeto-thairine.jpg',
     imgAlt: 'Site Thairine Pacheco — Atendimento Nutricional Online',
     type: 'Landing Page',
     title: 'Thairine Pacheco Nutricionista',
@@ -35,7 +28,7 @@ const projects = [
     url: 'https://www.thairinenutricionista.com/thairine-pacheco-nutricionista-online-consulta-nutricional-online',
   },
   {
-    img: upbarber,
+    imgSrc: '/studiogs/images/projeto-upbarber.jpg',
     imgAlt: 'Site Up Barber — Sua melhor versão começa aqui',
     type: 'Institucional',
     title: 'Up Barber',
@@ -57,11 +50,11 @@ const projects = [
       <article class="border border-[#E8ECF2] rounded-[6px] overflow-hidden bg-white group">
 
         <div class="aspect-[16/9] overflow-hidden">
-          <Image
-            src={p.img}
+          <img
+            src={p.imgSrc}
             alt={p.imgAlt}
-            width={640}
-            height={360}
+            width="640"
+            height="360"
             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             loading={i === 0 ? 'eager' : 'lazy'}
             fetchpriority={i === 0 ? 'high' : 'auto'}
