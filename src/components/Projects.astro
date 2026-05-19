@@ -45,17 +45,19 @@ const projects = [
     Uma amostra breve do nosso trabalho para empresas de diferentes segmentos.
   </p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {projects.map((p) => (
-      <article class="border border-[#E8ECF2] rounded-[6px] overflow-hidden bg-white group">
-        <!-- Imagem real do projeto com efeito zoom no hover -->
-        <div class="h-48 overflow-hidden">
-          <img
-            src={p.imgSrc}
-            alt={p.imgAlt}
-            class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
+  {projects.map((p, i) => (
+    <article class="border border-[#E8ECF2] rounded-[6px] overflow-hidden bg-white group">
+      <div class="w-full overflow-hidden" style="aspect-ratio: 16/9;">
+        <img
+          src={p.imgSrc}
+          alt={p.imgAlt}
+          width="640"
+          height="360"
+          class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          fetchpriority={i === 0 ? 'high' : 'auto'}
+        />
+      </div>
         <!-- Conteúdo -->
         <div class="p-5">
           <p class="font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-blue-accent mb-1.5">
