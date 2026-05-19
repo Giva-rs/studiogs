@@ -6,6 +6,6 @@ export default defineConfig({
   base: '/studiogs',
   compressHTML: true,
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
 });
