@@ -1,4 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0D1B2A"/>
-  <text x="16" y="22" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" fill="#C49A3C">GS</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #0d1b2a;
+        font-size: 18.5px;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        font-family: BaradigBold, Baradig;
+      }
+
+      .cls-5 {
+        fill: #c49a3c;
+        font-size: 40.5px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M0,0h64v54c0,5.52-4.48,10-10,10H10C4.48,64,0,59.52,0,54V0H0Z"/>
+  <text class="cls-4" transform="translate(.52 20.35) scale(.85 1)"><tspan class="cls-2"><tspan class="cls-3" x="0" y="0">s</tspan><tspan x="14.26" y="0">tudio</tspan></tspan><tspan class="cls-5"><tspan x="-.57" y="43.6">GS</tspan></tspan></text>
 </svg>
