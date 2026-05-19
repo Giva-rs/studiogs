@@ -90,9 +90,8 @@ const credentials = [
   </div>
 </section>
 
-<script is:inline>
-  (async () => {
-    // Aguarda o tsParticles estar disponível (carregado pela Hero)
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
     const waitForTsParticles = () => new Promise((resolve) => {
       if (typeof tsParticles !== 'undefined') return resolve(true);
       const interval = setInterval(() => {
@@ -102,9 +101,7 @@ const credentials = [
         }
       }, 100);
     });
-
     await waitForTsParticles();
-
     await tsParticles.load("tsparticles-about", {
       fullScreen: { enable: false },
       background: { color: { value: "transparent" } },
@@ -143,5 +140,5 @@ const credentials = [
       },
       detectRetina: true
     });
-  })();
+  });
 </script>
