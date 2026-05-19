@@ -1,7 +1,14 @@
 ---
+import { Image } from 'astro:assets';
+
+import femgi from '../images/projeto-femgi.jpg';
+import tudolar from '../images/projeto-lojatudolar.jpg';
+import thairine from '../images/projeto-thairine.jpg';
+import upbarber from '../images/projeto-upbarber.jpg';
+
 const projects = [
   {
-    imgSrc: '/studiogs/images/projeto-femgi.jpg',
+    img: femgi,
     imgAlt: 'Site FEMGI — Projetos que conectam ideias',
     type: 'Institucional',
     title: 'FEMGI',
@@ -10,7 +17,7 @@ const projects = [
     url: 'https://www.femgi.com.br',
   },
   {
-    imgSrc: '/studiogs/images/projeto-lojatudolar.jpg',
+    img: tudolar,
     imgAlt: 'E-commerce Tudolar — Artigos para o lar e muito mais',
     type: 'E-commerce',
     title: 'Loja Tudolar',
@@ -19,7 +26,7 @@ const projects = [
     url: 'https://www.lojatudolar.com.br',
   },
   {
-    imgSrc: '/studiogs/images/projeto-thairine.jpg',
+    img: thairine,
     imgAlt: 'Site Thairine Pacheco — Atendimento Nutricional Online',
     type: 'Landing Page',
     title: 'Thairine Pacheco Nutricionista',
@@ -28,7 +35,7 @@ const projects = [
     url: 'https://www.thairinenutricionista.com/thairine-pacheco-nutricionista-online-consulta-nutricional-online',
   },
   {
-    imgSrc: '/studiogs/images/projeto-upbarber.jpg',
+    img: upbarber,
     imgAlt: 'Site Up Barber — Sua melhor versão começa aqui',
     type: 'Institucional',
     title: 'Up Barber',
@@ -39,38 +46,37 @@ const projects = [
 ];
 ---
 
-<section id="projetos" class="px-10 py-[72px]">
+<section id="projetos" class="px-4 sm:px-10 py-[72px]">
   <p class="section-tag">Cases</p>
   <h2 class="section-title">Projetos selecionados</h2>
   <p class="section-sub">
     Uma amostra breve do nosso trabalho para empresas de diferentes segmentos.
   </p>
-
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {projects.map((p) => (
+    {projects.map((p, i) => (
       <article class="border border-[#E8ECF2] rounded-[6px] overflow-hidden bg-white group">
 
-        <!-- Imagem real do projeto com efeito zoom no hover -->
-        <div class="h-48 overflow-hidden">
-          <img
-            src={p.imgSrc}
+        <div class="aspect-[16/9] overflow-hidden">
+          <Image
+            src={p.img}
             alt={p.imgAlt}
+            width={640}
+            height={360}
             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
           />
         </div>
 
-        <!-- Conteúdo -->
         <div class="p-5">
           <p class="font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-blue-accent mb-1.5">
             {p.type}
           </p>
           <h3 class="font-sans text-base font-bold text-navy mb-2">{p.title}</h3>
           <p class="font-sans text-[13px] text-[#5A6A7E] leading-[1.6]">{p.description}</p>
-
           <div class="flex items-center justify-between mt-3.5 pt-3.5 border-t border-[#E8ECF2]">
             <span class="font-sans text-[11px] text-[#9AA3B0]">{p.tech}</span>
-            <a
+            
               href={p.url}
               class="font-sans text-[12px] font-bold text-blue-accent no-underline hover:underline"
             >
