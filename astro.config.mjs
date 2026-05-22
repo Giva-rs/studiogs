@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://studiogs.com.br',
+  integrations: [tailwind(), sitemap()],
+  site: 'https://www.studiogs.com.br',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
